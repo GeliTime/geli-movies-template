@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import '../App.css';
+import Profile from '../Pages/Profile'
 
 function App() {
+  const movieTitle = ["Free Willy", "Frozen", "Titanic", "Moonlight", "Up", "Pulp Fiction", "The Negotiator"]
+  const getMovieApi = async (movies) => {
+    await movies.map(async (movie) => {
+     const url = `https://www.omdbapi.com/?apikey=b4bd4703&t=${movie}`;
+     const response = await fetch(url);
+     const responseJson = await response.json();
+    console.log(responseJson)
+    });
+  };
+     getMovieApi(movieTitle)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Profile/>
     </div>
   );
 }
