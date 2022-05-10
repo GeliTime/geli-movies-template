@@ -1,21 +1,27 @@
 import '../App.css';
-import Profile from '../Pages/Profile'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Header from "./Header";
+import Footer from "./Footer";
+import Profile from '../Pages/Profile';
+import Card from "./MovieCard";
+import Home from "../Pages/Home";
+
+
+
 
 function App() {
-  const movieTitle = ["Free Willy", "Frozen", "Titanic", "Moonlight", "Up", "Pulp Fiction", "The Negotiator"]
-  const getMovieApi = async (movies) => {
-    await movies.map(async (movie) => {
-     const url = `https://www.omdbapi.com/?apikey=b4bd4703&t=${movie}`;
-     const response = await fetch(url);
-     const responseJson = await response.json();
-    console.log(responseJson)
-    });
-  };
-     getMovieApi(movieTitle)
+  const movieTitle = ["Free Willy", "Frozen", "Titanic", "Moonlight", "Up", "Pulp Fiction", "The Negotiator"] 
+
   return (
-    <div className="App">
-      <Profile/>
-    </div>
+    <>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/profile' element={<Profile movies={movieTitle}/>}/>
+      </Routes>
+    </Router>
+    </>
   );
 }
 
