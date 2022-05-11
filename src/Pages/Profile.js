@@ -33,22 +33,52 @@ function Profile(props) {
     country: "",
     stateRegion: "",
     about: "",
+    movies: [
+      "Free Willy",
+      "Frozen",
+      "Titanic",
+      "Moonlight",
+      "Up",
+      "Pulp Fiction",
+      "The Negotiatior",
+    ],
   });
-  const [moviesArray, setMoviesArray] = useState(movies);
-  console.log("moviesArray",moviesArray)
 
+  // const [moviesArray, setMoviesArray] = useState(movies);
+  // console.log("moviesArray",moviesArray)
 
-  const handleRemoveItem = (e) => {
-   const name = e.target.getAttribute("name")
-    setMoviesArray(movies.filter(movie => movie !== name));
+  const [newTitle, setNewTitle] = useState("");
+  const handleChange = (e) => {
+    e.preventDefault();
+    const title = e.target.value;
+    setNewTitle(title);
+    console.log(title, " in handleChange");
   };
-  
-  
+
+  const addTitle = (e) => {
+    e.preventDefault();
+    if (!newTitle) return;
+    console.log(formInput.movie, "is formInput.movie");
+    let movieArrayCopy = [...formInput.movie];
+    movieArrayCopy.push(newTitle);
+    setFormInput({ ...formInput, movie: movieArrayCopy });
+    console.log(newTitle, " in addTitle");
+    setNewTitle("");
+  };
+
+  const handleDelete = (item, key) => {
+    console.log(item, key);
+    let allTitlesCopy = [...formInput.movie];
+    allTitlesCopy.splice(key, 1);
+    console.log(allTitlesCopy);
+    setFormInput({ ...formInput, movie: allTitlesCopy });
+    //  const name = e.target.getAttribute("name")
+    //   setMoviesArray(movies.filter(movie => movie !== name));
+  };
 
   return (
     <div className="background">
       <h3 className="edit-your-profile">Edit Your Profile</h3>
-
       <h4 className="add-profile-picture">Add Your Profile Picture</h4>
       <h5 className="who-are-you">Who Are You?</h5>
       <Box
@@ -93,7 +123,6 @@ function Profile(props) {
             variant="outlined"
           />
         </FormControl>
-
       </Box>
       <Box
         component="form"
@@ -105,7 +134,10 @@ function Profile(props) {
       >
         <FormControl>
           <h3 className="what-you-watching">What Have You Been Watching?</h3>
-          <TextField id="outlined-basic" placeholder="Movies listed here will be added to the My Movies page and can be removed from your list upon edit." variant="outlined"
+          <TextField
+            id="outlined-basic"
+            placeholder="Movies listed here will be added to the My Movies page and can be removed from your list upon edit."
+            variant="outlined"
           />
         </FormControl>
         <FormControl>
@@ -114,23 +146,20 @@ function Profile(props) {
           <button id="add-another">Add Another</button>
           <h3 className="your-movies">Your Movies</h3>
         </FormControl>
-        <div>
-          {moviesArray.map((movie) => {
-            <p>{movie}</p>
+{/* ********************************************************************************* */}
+
+{/* LAURA, we cannot get this map to show up in the UI at all - the wrapper div shows in the dev tools HTML, but nothing is nested inside. pls help */}
+        <div className="movies-wrapper">
+          {formInput.movies.map((movie, key) => {
+            <div onClick={(item) => handleDelete(item, key)} key={key}>
+              <p>{movie}</p>
+            </div>;
           })}
         </div>
-
-
-        {/* <div className="movies-wrapper">
-          <p>hi</p>
-        {movies.map((movie, key) => {
-            <p>{movie}</p>
-        })}
-        </div> */}
+{/* **************************************************************************************** */}
         <div>
           <button id="save-button">Save</button>
         </div>
-
       </Box>
     </div>
   );

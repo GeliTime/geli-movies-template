@@ -8,9 +8,10 @@
     margin: 0%;
     padding: 5% 0% 5% 20%;
 }
+
 .add-profile-picture{
     margin-left: 25%;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 .form-border{
@@ -27,7 +28,6 @@
     font-style: normal;
     font-weight: 700;
     line-height: 20px;
-    margin: 0;
     display: flex;
     position: absolute;
     padding-top: 3%;
@@ -55,17 +55,14 @@
     padding-top: 5%;
     padding-bottom: 2.2%;
     margin-left: 55.8%;
-    margin-top: -20%;
+    margin-top: 0%;
 }
-
 .what-you-watching{
     font: 20px 'Sulphur Point';
     font-style: normal;
     font-weight: 700;
-    line-height: 20px;
-    margin: 100px; 
-    /* display: flex;
-    position: absolute; */
+    display: flex;
+    position: relative;
     
 }
 .add-new-movie-label{
@@ -80,16 +77,16 @@
 .movies-wrapper{
     display: flex;
 }
-.movies{
+ .movies{
     font-family: 16px 'Sulphur Point';
     border: black 2px solid;
     border-radius: 2px;
     line-height: 140%;
-    width: fit-content;
+    /* width: fit-content;
     padding: 0% 8% 0% 8%;
-    justify-content: space-between
+    justify-content: space-between */
 }    
-#save-button{
+/*#save-button{
     background: #395C6B;
     border-radius: 300px;
     height: 42px;
@@ -98,4 +95,4 @@
     top: 0px;
     border-radius: 300px;
     color: white;
-}
+} */
