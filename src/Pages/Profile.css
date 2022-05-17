@@ -1,17 +1,18 @@
 
-.background{
-    border: black;
+.profile-background{
     width: auto;
-    background-color:#E6E1C5;
+    height: auto;
+    background-color:#E6E1C5 !important;
 }
 .edit-your-profile{
     margin: 0%;
-    padding: 5% 0% 5% 20%;
+    /* padding: 5% 0% 5% 20%; */
 }
 
 .add-profile-picture{
-    margin-left: 25%;
-    margin-top: 10%;
+    margin: 0%;
+    /* margin-left: 25%;
+    margin-top: 10%; */
 }
 
 .form-border{
@@ -19,73 +20,75 @@
     border: 1px solid #A4A4A4;
     border-radius: 15px;
     width: 25%;
-    padding-top: 5%;
+    /* padding-top: 5%;
     padding-bottom: 2.2%;
-    margin-left: 17.8%;
+    margin-left: 17.8%; */
 }
+.label-label{
+    margin: 0%;
+    padding: 0%;
+}
+
 .who-are-you{
     font: 20px 'Sulphur Point';
-    font-style: normal;
     font-weight: 700;
     line-height: 20px;
-    display: flex;
-    position: absolute;
-    padding-top: 3%;
-    padding-left: 21.1%;
-}
-#outlined-basic{
-    width: auto;
-    padding: 2.3%;
-    position: relative;
+    margin: 0%;
+    /* display: flex;
+    position: absolute; */
+    /* padding-left: 21.1%; */
 }
 .choose-your-country{
     font-weight: 400;
     opacity: 60%;
-    display: flex;
+    /* display: flex;
     position: absolute;
-    margin: 0%;
-    height: 300px;
+    margin: 0%; */
+    height: 30%;
 }
+
+
 .form-border-two{
     background-color: white;
     border: 1px solid #A4A4A4;
     border-radius: 15px;
     height: 10%;
     width: 25%;
-    padding-top: 5%;
+    /* padding-top: 5%;
     padding-bottom: 2.2%;
     margin-left: 55.8%;
-    margin-top: 0%;
+    margin-top: 0%; */
 }
 .what-you-watching{
     font: 20px 'Sulphur Point';
     font-style: normal;
     font-weight: 700;
-    display: flex;
-    position: relative;
+    /* display: flex;
+    position: relative; */
     
 }
 .add-new-movie-label{
-    position: relative;
+    /* position: relative; */
 }
 #add-another{
     position: relative;
     background: #FFFFFF;
-    order: 2px solid #395C6B;
+    border: 2px solid #395C6B;
     border-radius: 300px;
 }
 .movies-wrapper{
-    display: flex;
+    border: 2px black solid;
+    width: 50px;
+    height: 30px;
+    /* display: inline; */
 }
- .movies{
+ /* .movies{
     font-family: 16px 'Sulphur Point';
     border: black 2px solid;
     border-radius: 2px;
     line-height: 140%;
-    /* width: fit-content;
-    padding: 0% 8% 0% 8%;
-    justify-content: space-between */
-}    
+    
+}     */
 /*#save-button{
     background: #395C6B;
     border-radius: 300px;

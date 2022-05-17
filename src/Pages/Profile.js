@@ -68,16 +68,16 @@ function Profile(props) {
 
   const handleDelete = (item, key) => {
     console.log(item, key);
-    let allTitlesCopy = [...formInput.movie];
+    let allTitlesCopy = [...formInput.movies];
     allTitlesCopy.splice(key, 1);
     console.log(allTitlesCopy);
-    setFormInput({ ...formInput, movie: allTitlesCopy });
+    setFormInput({ ...formInput, movies: allTitlesCopy });
     //  const name = e.target.getAttribute("name")
     //   setMoviesArray(movies.filter(movie => movie !== name));
   };
 
   return (
-    <div className="background">
+    <div className="profile-background">
       <h3 className="edit-your-profile">Edit Your Profile</h3>
       <h4 className="add-profile-picture">Add Your Profile Picture</h4>
       <h5 className="who-are-you">Who Are You?</h5>
@@ -89,12 +89,16 @@ function Profile(props) {
         className="form-border"
       >
         <FormControl>
-          <h4 className="name-label">Name</h4>
+          <h4 className="name-label" className="label-label">
+            Name
+          </h4>
           <TextField id="outlined-basic" variant="outlined" />
         </FormControl>
 
         <div>
-          <h4 className="choose-your-country">Country</h4>
+          <h4 className="choose-your-country" className="label-label">
+            Country
+          </h4>
           <Select
             style={{ width: "253px" }}
             value={selectedCountry}
@@ -110,16 +114,20 @@ function Profile(props) {
         </div>
 
         <FormControl>
-          <h4 className="state-region-label">State/ Region</h4>
+          <h4 className="state-region-label" className="label-label">
+            State/ Region
+          </h4>
           <TextField id="outlined-basic" variant="outlined" />
         </FormControl>
 
         <FormControl>
           <br></br>
-          <h4 className="about-label">About</h4>
+          <h4 className="about-label" className="label-label">
+            About
+          </h4>
           <TextField
             id="outlined-basic"
-            label="Hi! Please introduce yourself."
+            label="Hi! Please introduce yourself: (eg, Hi! I’m Chelsea. I’m a movie fanatic from Wisconsin. I enjoy all types of movies, especially ones that have a strong female lead or involve Sammuel L Jackson.  )"
             variant="outlined"
           />
         </FormControl>
@@ -129,11 +137,10 @@ function Profile(props) {
         sx={{
           "& > :not(style)": { m: 1, width: "25ch" },
         }}
-        className="form-border"
         className="form-border-two"
       >
         <FormControl>
-          <h3 className="what-you-watching">What Have You Been Watching?</h3>
+          <h3 className="what-you-watching" className="label-label">What Have You Been Watching?</h3>
           <TextField
             id="outlined-basic"
             placeholder="Movies listed here will be added to the My Movies page and can be removed from your list upon edit."
@@ -141,22 +148,24 @@ function Profile(props) {
           />
         </FormControl>
         <FormControl>
-          <h4 className="add-new-movie-label">Add New Movie</h4>
+          <h4 className="add-new-movie-label" className="label-label">Add New Movie</h4>
           <TextField id="outlined-basic" variant="outlined" />
           <button id="add-another">Add Another</button>
-          <h3 className="your-movies">Your Movies</h3>
+          <h3 className="your-movies" className="label-label">Your Movies</h3>
         </FormControl>
-{/* ********************************************************************************* */}
+        {/* ********************************************************************************* */}
 
-{/* LAURA, we cannot get this map to show up in the UI at all - the wrapper div shows in the dev tools HTML, but nothing is nested inside. pls help */}
+        {/* LAURA, we cannot get this map to show up in the UI at all - the wrapper div shows in the dev tools HTML, but nothing is nested inside. pls help */}
         <div className="movies-wrapper">
           {formInput.movies.map((movie, key) => {
-            <div onClick={(item) => handleDelete(item, key)} key={key}>
-              <p>{movie}</p>
-            </div>;
+            return (
+              <div  key={key} className="click-title">
+                <p onClick={(item) => handleDelete(item, key)}>{movie}</p>
+              </div>
+            );
           })}
         </div>
-{/* **************************************************************************************** */}
+        {/* **************************************************************************************** */}
         <div>
           <button id="save-button">Save</button>
         </div>
